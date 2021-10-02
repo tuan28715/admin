@@ -1,0 +1,16 @@
+<mat-toolbar style="background-color: #004666; height: 80px;" >
+  <span>
+    <img routerLink="/home" style="width: 65%;" src="https://dominos.vn/img/logo/domino-horizontal-dark.svg" alt="logo">
+  </span>
+  <span class="example-spacer"></span>
+    <h2 style="margin-right: 10px; color: white;" >{{UtilsService.username}}</h2>
+  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <mat-icon style="color: white;" >favorite</mat-icon>
+  </button>
+  <button routerLink="/home/dishes" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <mat-icon style="color: white;" >local_pizza</mat-icon>
+  </button>
+  <button (click)="logOut()" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+    <mat-icon style="color: white;" >exit_to_app</mat-icon>
+  </button>
+</mat-toolbar>
