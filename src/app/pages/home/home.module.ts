@@ -29,7 +29,7 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService } from 'primeng/api';
 import { MessageService } from 'primeng/api';
 import { InputTextareaModule } from 'primeng/inputtextarea';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CreateDishComponent } from './crud/create-dish/create-dish.component';
 import { UpdateDishComponent } from './crud/update-dish/update-dish.component';
@@ -43,6 +43,8 @@ import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
     UpdateDishComponent
   ],
   imports: [
+    ReactiveFormsModule,
+    FormsModule,
     CommonModule,
     HomeRoutingModule,
     MenubarModule,
@@ -64,7 +66,6 @@ import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
     FileUploadModule,
     ToolbarModule,
     RatingModule,
-    FormsModule,
     RadioButtonModule,
     InputNumberModule,
     ConfirmDialogModule,

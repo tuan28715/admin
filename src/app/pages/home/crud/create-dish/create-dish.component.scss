@@ -1,0 +1,20 @@
+.modal-header{
+    background-color: #004666;
+}
+.modal-title{
+    color: white;
+}
+.modal-footer{
+    background-color: #004666;
+}
+.btn-outline-dark{
+    color: white;
+}
+input[type=text], input[type=password], input[type=number] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }

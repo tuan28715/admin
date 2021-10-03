@@ -1,15 +1,29 @@
 <ng-template #content let-c="close" let-d="dismiss">
     <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">Hi there!</h4>
+      <h4 class="modal-title" id="modal-basic-title">Create Dish!</h4>
       <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
     <div class="modal-body">
-      <p>Hello, World!</p>
+      <form [formGroup]="dishForm" >
+        <input type="text" placeholder="Enter name" formControlName="name">
+        <input type="number" placeholder="Enter price" formControlName="price">
+        <input type="text" placeholder="Enter description" formControlName="description">
+        <input type="text" placeholder="Enter type" formControlName="type">
+        <input type="text" placeholder="Enter ingredients" formControlName="ingredients">
+        <input type="text" placeholder="Enter status" formControlName="status">
+        <input type="number" placeholder="Enter reviews" formControlName="reviews">
+      </form>
+      <label class="image-upload-container btn btn-bwm">
+        <input #imageInput
+               type="file"
+               accept="image/*"
+               (change)="processFile(imageInput)">
+      </label>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Save</button>
+      <button type="button" class="btn btn-outline-dark" (click)="onSubmit()">Save</button>
     </div>
   </ng-template>
   
