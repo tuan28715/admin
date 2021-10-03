@@ -4,15 +4,7 @@
   <div class="card">
     <p-toolbar styleClass="p-mb-4">
       <ng-template pTemplate="left">
-        <button
-          style="background-color: black"
-          pButton
-          pRipple
-          label="New"
-          icon="pi pi-plus"
-          class="p-button-success p-mr-2"
-          (click)="openNew()"
-        ></button>
+        <app-create-dish></app-create-dish>
       </ng-template>
 
       <ng-template pTemplate="right">
@@ -72,49 +64,54 @@
           <th pSortableColumn="name">
             Name <p-sortIcon field="name"></p-sortIcon>
           </th>
+          <th>
+            Image
+          </th>
           <th pSortableColumn="price">
             Price <p-sortIcon field="price"></p-sortIcon>
           </th>
           <th pSortableColumn="category">
             Type <p-sortIcon field="category"></p-sortIcon>
           </th>
-          <th >
+          <!-- <th >
             Reviews <p-sortIcon field="name"></p-sortIcon>
-          </th>
-          <th >
+          </th> -->
+          <!-- <th >
             Status <p-sortIcon field="name"></p-sortIcon>
-          </th>
+          </th> -->
           <th></th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-product>
         <tr>
           <td>{{ product.name }}</td>
-          <td>{{ product.price[0] | currency: "VND" }}</td>
+          <td><img style="width: 80px; height: 80px;" src="{{product.imagePath}}" alt=""></td>
+          <td>{{ product.price | currency: "VND" }}</td>
           <td>{{ product.type }}</td>
-          <td>
+          <!-- <td>
             <p-rating
               [ngModel]="product.rating"
               [readonly]="true"
               [cancel]="false"
             ></p-rating>
-          </td>
-          <td>{{ product.status }}</td>
+          </td> -->
+          <!-- <td>{{ product.status }}</td> -->
           <!-- <td><span [class]="'product-badge status-' + product.inventoryStatus.toLowerCase()">{{product.inventoryStatus}}</span></td> -->
           <td>
-            <button
+            <!-- <button
               style="background-color: #004666"
               pButton
               pRipple
               icon="pi pi-pencil"
               class="p-button-rounded p-button-success p-mr-2"
-              (click)="editProduct(product)"
-            ></button>
+              (click)="updateDish(product)"
+            ></button> -->
+              <app-update-dish [dish]="product"></app-update-dish>
             <button
               pButton
               pRipple
               style="
-                margin-left: 100px;
+                margin-left: 70px;
                 background-color: #e31837;
                 color: white;
               "

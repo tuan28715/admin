@@ -10,7 +10,6 @@ import { ButtonModule } from 'primeng/button';
 import { MaterialModule } from '../../shared/material-module';
 import { CrudComponent } from './crud/crud.component'
 import { SidebarComponent } from './sidebar/sidebar.component'
-import { ProductService } from './crud/productservice';
 
 import {TableModule} from 'primeng/table';
 import {ToastModule} from 'primeng/toast';
@@ -32,12 +31,16 @@ import { MessageService } from 'primeng/api';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
+import { CreateDishComponent } from './crud/create-dish/create-dish.component';
+import { UpdateDishComponent } from './crud/update-dish/update-dish.component';
+import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     HomeComponent,
     CrudComponent,
-    SidebarComponent
+    SidebarComponent,
+    CreateDishComponent,
+    UpdateDishComponent
   ],
   imports: [
     CommonModule,
@@ -66,7 +69,9 @@ import { HttpClientModule } from '@angular/common/http';
     InputNumberModule,
     ConfirmDialogModule,
     InputTextareaModule,
+    NgbPaginationModule,
+    NgbAlertModule
   ],
-  providers:[ProductService, MessageService, ConfirmationService]
+  providers:[MessageService, ConfirmationService]
 })
 export class HomeModule { }

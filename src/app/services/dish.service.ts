@@ -11,4 +11,12 @@ export class DishService {
     return await this.UtilsService.getAll("dish");
   }
 
+  async updateDish(dish){
+    return await this.UtilsService.update("dish", dish);
+  }
+  
+  async createDish(dish){
+    return await this.UtilsService.create("dish", dish);
+  }
+
 }

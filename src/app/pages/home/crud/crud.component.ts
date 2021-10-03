@@ -1,6 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Product } from './product';
-import { ProductService } from './productservice';
 import { ConfirmationService } from 'primeng/api';
 import { MessageService } from 'primeng/api';
 import { DishService } from '../../../services/dish.service';
@@ -22,24 +20,26 @@ export class CrudComponent implements OnInit {
 
     products: any
 
-    product: Product;
+    product: any;
 
-    selectedProducts: Product[];
+    selectedProducts: any;
 
     submitted: boolean;
 
     dishes: any;
-
+    categories:any;
     constructor(
-        private productService: ProductService,
         private messageService: MessageService,
         private confirmationService: ConfirmationService,
-        private DishService:DishService
+        private DishService:DishService,
         ) { }
 
     ngOnInit() {
-        // this.productService.getProducts().then(data => this.products = data);
         this.DishService.getAll().then(data => this.products = data);
+    }
+
+    updateDish(dish){
+        this.DishService.updateDish(dish);
     }
 
     openNew() {
@@ -61,12 +61,7 @@ export class CrudComponent implements OnInit {
         });
     }
 
-    editProduct(product: Product) {
-        this.product = {...product};
-        this.productDialog = true;
-    }
-
-    deleteProduct(product: Product) {
+    deleteProduct(product: any) {
         this.confirmationService.confirm({
             message: 'Are you sure you want to delete ' + product.name + '?',
             header: 'Confirm',
@@ -84,27 +79,6 @@ export class CrudComponent implements OnInit {
         this.submitted = false;
     }
     
-    saveProduct() {
-        this.submitted = true;
-
-        if (this.product.name.trim()) {
-            if (this.product.id) {
-                this.products[this.findIndexById(this.product.id)] = this.product;                
-                this.messageService.add({severity:'success', summary: 'Successful', detail: 'Product Updated', life: 3000});
-            }
-            else {
-                this.product.id = this.createId();
-                this.product.image = 'product-placeholder.svg';
-                this.products.push(this.product);
-                this.messageService.add({severity:'success', summary: 'Successful', detail: 'Product Created', life: 3000});
-            }
-
-            this.products = [...this.products];
-            this.productDialog = false;
-            this.product = {};
-        }
-    }
-
     findIndexById(id: string): number {
         let index = -1;
         for (let i = 0; i < this.products.length; i++) {
@@ -115,14 +89,5 @@ export class CrudComponent implements OnInit {
         }
 
         return index;
-    }
-
-    createId(): string {
-        let id = '';
-        var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-        for ( var i = 0; i < 5; i++ ) {
-            id += chars.charAt(Math.floor(Math.random() * chars.length));
-        }
-        return id;
     }
 }
