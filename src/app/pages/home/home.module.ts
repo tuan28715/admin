@@ -37,6 +37,8 @@ import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './sidebar/login/login.component';
 import { CategoryComponent } from './category/category.component';
 import { UserComponent } from './user/user.component';
+import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.component';
+import {PanelMenuModule} from 'primeng/panelmenu';
 @NgModule({
   declarations: [
     HomeComponent,
@@ -46,7 +48,8 @@ import { UserComponent } from './user/user.component';
     UpdateDishComponent,
     LoginComponent,
     CategoryComponent,
-    UserComponent
+    UserComponent,
+    DashboardAdminComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -78,6 +81,7 @@ import { UserComponent } from './user/user.component';
     InputTextareaModule,
     NgbPaginationModule,
     NgbAlertModule,
+    PanelMenuModule
   ],
   providers:[MessageService, ConfirmationService],
   exports:[SidebarComponent]

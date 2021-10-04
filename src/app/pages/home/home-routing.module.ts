@@ -6,7 +6,6 @@ import { CategoryComponent } from './category/category.component';
 import { UserComponent } from './user/user.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'dishes',canActivate:[], component: CrudComponent},
   { path: 'categories',canActivate:[], component: CategoryComponent},
   { path: 'users',canActivate:[], component: UserComponent},
 ];

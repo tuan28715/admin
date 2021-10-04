@@ -1,10 +1,31 @@
-<app-sidebar></app-sidebar>
 <p-toast></p-toast>
 <div style="width: 90%; margin-left: auto; margin-right: auto">
   <div class="card">
     <p-toolbar styleClass="p-mb-4">
       <ng-template pTemplate="left">
         <app-create-dish></app-create-dish>
+        <button
+          style="margin-left: 10px;"
+          type="button"
+          pButton
+          pRipple
+          icon="pi pi-file-excel"
+          (click)="exportExcel()"
+          class="p-button-success p-mr-2"
+          pTooltip="XLS"
+          tooltipPosition="bottom"
+        ></button>
+        <button
+          style="margin-left: 10px;"
+          type="button"
+          pButton
+          pRipple
+          icon="pi pi-file-pdf"
+          (click)="exportPdf()"
+          class="p-button-warning p-mr-2"
+          pTooltip="PDF"
+          tooltipPosition="bottom"
+        ></button>
       </ng-template>
 
       <ng-template pTemplate="right">
@@ -12,15 +33,6 @@
           style="margin-right: 20px; background-color: black"
           pButton
           pRipple
-          label="Import"
-          icon="pi pi-upload"
-          class="p-button-help"
-        ></button>
-        <button
-          style="background-color: black"
-          pButton
-          pRipple
-          label="Export"
           icon="pi pi-upload"
           class="p-button-help"
         ></button>
@@ -64,9 +76,7 @@
           <th pSortableColumn="name">
             Name <p-sortIcon field="name"></p-sortIcon>
           </th>
-          <th>
-            Image
-          </th>
+          <th>Image</th>
           <th pSortableColumn="price">
             Price <p-sortIcon field="price"></p-sortIcon>
           </th>
@@ -79,19 +89,21 @@
       <ng-template pTemplate="body" let-product>
         <tr>
           <td>{{ product.name }}</td>
-          <td><img style="width: 80px; height: 80px;" src="{{product.imagePath}}" alt=""></td>
+          <td>
+            <img
+              style="width: 80px; height: 80px"
+              src="{{ product.imagePath }}"
+              alt=""
+            />
+          </td>
           <td>{{ product.price | currency: "VND" }}</td>
           <td>{{ product.type }}</td>
           <td>
-              <app-update-dish [dish]="product"></app-update-dish>
+            <app-update-dish [dish]="product"></app-update-dish>
             <button
               pButton
               pRipple
-              style="
-                margin-left: 70px;
-                background-color: #e31837;
-                color: white;
-              "
+              style="margin-left: 70px; background-color: #e31837; color: white"
               icon="pi pi-trash"
               class="p-button-rounded p-button-warning"
               (click)="deleteProduct(product)"
