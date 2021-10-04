@@ -1,25 +1,14 @@
 <ng-template #content let-c="close" let-d="dismiss">
     <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">Create Dish!</h4>
+      <h4 class="modal-title" id="modal-basic-title">Create Category!</h4>
       <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
     <div class="modal-body">
-      <form [formGroup]="dishForm" >
+      <form [formGroup]="categoryForm" >
         <input type="text" placeholder="Enter name" formControlName="name">
-        <input type="number" placeholder="Enter price" formControlName="price">
         <input type="text" placeholder="Enter description" formControlName="description">
-        <select formControlName="type" class="select" >
-          <option><p>---</p></option>
-          <option *ngFor="let category of categories"   ><p>{{category.name}}</p></option>
-        </select>
-        <input type="text" placeholder="Enter ingredients" formControlName="ingredients">
-        <select formControlName="status" class="select" >
-          <option><p>---</p></option>
-          <option><p>active</p></option>
-          <option><p>inactive</p></option>
-        </select>
         <div>
           <img style="width: 150px; height: auto;" *ngFor="let urlFile of filePath" [src]="urlFile">
         </div>

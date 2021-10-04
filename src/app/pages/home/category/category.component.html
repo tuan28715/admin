@@ -1,30 +1,12 @@
 <app-sidebar></app-sidebar>
 
-<!-- <p-toast></p-toast>
+<p-toast></p-toast>
 <div style="width: 90%; margin-left: auto; margin-right: auto">
   <div class="card">
     <p-toolbar styleClass="p-mb-4">
       <ng-template pTemplate="left">
-        <app-create-dish></app-create-dish>
-      </ng-template>
-
-      <ng-template pTemplate="right">
-        <button
-          style="margin-right: 20px; background-color: black"
-          pButton
-          pRipple
-          label="Import"
-          icon="pi pi-upload"
-          class="p-button-help"
-        ></button>
-        <button
-          style="background-color: black"
-          pButton
-          pRipple
-          label="Export"
-          icon="pi pi-upload"
-          class="p-button-help"
-        ></button>
+        <!-- <app-create-dish></app-create-dish> -->
+        <app-create-category></app-create-category>
       </ng-template>
     </p-toolbar>
     <mat-progress-bar *ngIf="!categories" mode="indeterminate"></mat-progress-bar>
@@ -48,7 +30,7 @@
     >
       <ng-template pTemplate="caption">
         <div class="p-d-flex p-ai-center p-jc-between">
-          <h5 class="p-m-0">Manage Products</h5>
+          <h5 class="p-m-0">Manage categories</h5>
           <span class="p-input-icon-left">
             <i class="pi pi-search"></i>
             <input
@@ -69,17 +51,22 @@
             Image
           </th>
           <th pSortableColumn="price">
-            description <p-sortIcon field="price"></p-sortIcon>
+            Description <p-sortIcon field="price"></p-sortIcon>
+          </th>
+          <th pSortableColumn="date">
+            Date<p-sortIcon field="date"></p-sortIcon>
           </th>
           <th></th>
         </tr>
       </ng-template>
-      <ng-template pTemplate="body" let-product>
+      <ng-template pTemplate="body" let-category>
         <tr>
           <td>{{ category.name }}</td>
           <td><img style="width: 80px; height: 80px;" src="{{category.imagePath}}" alt=""></td>
           <td>{{ category.description}}</td>
+          <td>{{ category.metadata.created | date:'medium' }}</td>
           <td>
+            <app-update-category [category]="category" ></app-update-category>
             <button
               pButton
               pRipple
@@ -103,4 +90,4 @@
     </p-table>
   </div>
   <p-confirmDialog [style]="{ width: '450px' }"></p-confirmDialog>
-</div> -->
+</div>

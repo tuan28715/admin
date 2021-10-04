@@ -12,4 +12,8 @@ export class CategoryService {
    return await this.UtilsService.getAll("category");
   }
 
+  async createCategory(category){
+    return await this.UtilsService.create("category", category);
+  }
+
 }
