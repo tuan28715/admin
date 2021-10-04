@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { isLogin } from '../../guards/auth.guard'
 import { HomeComponent } from './home.component';
-import { CrudComponent } from './crud/crud.component'
+import { CrudComponent } from './dish/crud.component'
+import { CategoryComponent } from './category/category.component';
+import { UserComponent } from './user/user.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'dishes', component: CrudComponent}
+  { path: 'dishes',canActivate:[], component: CrudComponent},
+  { path: 'categories',canActivate:[], component: CategoryComponent},
+  { path: 'users',canActivate:[], component: UserComponent},
 ];
 
 @NgModule({

@@ -1,0 +1,46 @@
+<app-sidebar></app-sidebar>
+<mat-progress-bar *ngIf="!users" mode="indeterminate"></mat-progress-bar>
+<table
+  style="width: 80%; margin-left: auto; margin-right: auto"
+  class="table table-striped"
+>
+  <thead>
+    <tr>
+      <th scope="col">username</th>
+      <th scope="col">fullname</th>
+      <th scope="col">email</th>
+      <th scope="col">created</th>
+      <th scope="col">role</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.username }}</td>
+      <td>{{ user.fullname }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.metadata.created | date: "medium" }}</td>
+      <td>{{ user.role }}</td>
+      <td>
+        <button
+          pButton
+          pRipple
+          style="background-color: #004666; color: white"
+          icon="pi pi-pencil"
+          class="p-button-rounded p-button-warning"
+        ></button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- <div class="d-flex justify-content-between p-2">
+  <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize" (pageChange)="refreshCountries()">
+  </ngb-pagination>
+
+  <select class="custom-select" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshCountries()">
+    <option [ngValue]="2">2 items per page</option>
+    <option [ngValue]="4">4 items per page</option>
+    <option [ngValue]="6">6 items per page</option>
+  </select>
+</div> -->

@@ -3,7 +3,17 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebaseConfig :{
+    apiKey: "AIzaSyCFpblkZnZgb-p31WL8wO7W8fdxMYwd2HA",
+    authDomain: "pizza-dffae.firebaseapp.com",
+    databaseURL: "https://pizza-dffae-default-rtdb.firebaseio.com",
+    projectId: "pizza-dffae",
+    storageBucket: "pizza-dffae.appspot.com",
+    messagingSenderId: "737849603676",
+    appId: "1:737849603676:web:b78085e68926ded606d899",
+    measurementId: "G-1F0Z4ED9XX"
+  }
 };
 
 /*

@@ -8,7 +8,7 @@ import { MenubarModule } from 'primeng/menubar';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { MaterialModule } from '../../shared/material-module';
-import { CrudComponent } from './crud/crud.component'
+import { CrudComponent } from './dish/crud.component'
 import { SidebarComponent } from './sidebar/sidebar.component'
 
 import {TableModule} from 'primeng/table';
@@ -31,16 +31,22 @@ import { MessageService } from 'primeng/api';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { CreateDishComponent } from './crud/create-dish/create-dish.component';
-import { UpdateDishComponent } from './crud/update-dish/update-dish.component';
+import { CreateDishComponent } from './dish/create-dish/create-dish.component';
+import { UpdateDishComponent } from './dish/update-dish/update-dish.component';
 import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
+import { LoginComponent } from './sidebar/login/login.component';
+import { CategoryComponent } from './category/category.component';
+import { UserComponent } from './user/user.component';
 @NgModule({
   declarations: [
     HomeComponent,
     CrudComponent,
     SidebarComponent,
     CreateDishComponent,
-    UpdateDishComponent
+    UpdateDishComponent,
+    LoginComponent,
+    CategoryComponent,
+    UserComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -71,8 +77,9 @@ import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
     ConfirmDialogModule,
     InputTextareaModule,
     NgbPaginationModule,
-    NgbAlertModule
+    NgbAlertModule,
   ],
-  providers:[MessageService, ConfirmationService]
+  providers:[MessageService, ConfirmationService],
+  exports:[SidebarComponent]
 })
 export class HomeModule { }

@@ -19,11 +19,4 @@ export class AuthGuard implements CanActivate {
       }
   }
 }
-export class isLogin implements CanActivate {
-  constructor(private UtilsService:UtilsService, private Router:Router){}
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return true;
-  }
-}
+

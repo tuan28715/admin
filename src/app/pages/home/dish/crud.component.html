@@ -73,12 +73,6 @@
           <th pSortableColumn="category">
             Type <p-sortIcon field="category"></p-sortIcon>
           </th>
-          <!-- <th >
-            Reviews <p-sortIcon field="name"></p-sortIcon>
-          </th> -->
-          <!-- <th >
-            Status <p-sortIcon field="name"></p-sortIcon>
-          </th> -->
           <th></th>
         </tr>
       </ng-template>
@@ -88,24 +82,7 @@
           <td><img style="width: 80px; height: 80px;" src="{{product.imagePath}}" alt=""></td>
           <td>{{ product.price | currency: "VND" }}</td>
           <td>{{ product.type }}</td>
-          <!-- <td>
-            <p-rating
-              [ngModel]="product.rating"
-              [readonly]="true"
-              [cancel]="false"
-            ></p-rating>
-          </td> -->
-          <!-- <td>{{ product.status }}</td> -->
-          <!-- <td><span [class]="'product-badge status-' + product.inventoryStatus.toLowerCase()">{{product.inventoryStatus}}</span></td> -->
           <td>
-            <!-- <button
-              style="background-color: #004666"
-              pButton
-              pRipple
-              icon="pi pi-pencil"
-              class="p-button-rounded p-button-success p-mr-2"
-              (click)="updateDish(product)"
-            ></button> -->
               <app-update-dish [dish]="product"></app-update-dish>
             <button
               pButton

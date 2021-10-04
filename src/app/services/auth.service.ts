@@ -11,4 +11,8 @@ export class AuthService {
     return await this.UtilsService.auth("user/login", data);
   }
 
+  async getAllUser(){
+    return await this.UtilsService.getAll("user");
+  }
+
 }

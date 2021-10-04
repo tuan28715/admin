@@ -21,20 +21,21 @@ export class UtilsService {
   }
 
   public async create(collectionName: string, data){
-    const medata = {
+    const metadata = {
       "actor":this.username,
       "created":this.date,
       "updated":this.date
     }
-    const body = {...data, medata}
+    const body = {...data, metadata}
     return this.HttpClient.post(HEROKU_USER_URL + collectionName, body).subscribe(async (res)=>{
-      console.log(res);
+      window.location.reload();
     })
   }
 
   public async update(collectionName: string, data){
     data.metadata.actor = this.username;
     data.metadata.updated = this.date;
+    data.reviews = 5;
     return this.HttpClient.put(HEROKU_USER_URL + collectionName, data).subscribe(async(res)=>{
       window.location.reload();
     },(err)=>{console.log(err)})
@@ -52,7 +53,7 @@ export class UtilsService {
       if(this.user.role === "admin"){
         localStorage.setItem('user', this.user.username);
         localStorage.setItem('uid', this.user._id);
-        await this.Router.navigate(['home'])
+        await this.Router.navigate([''])
         window.location.reload();
       }else{
         this.Router.navigate([''])

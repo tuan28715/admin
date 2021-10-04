@@ -1,0 +1,106 @@
+<app-sidebar></app-sidebar>
+
+<!-- <p-toast></p-toast>
+<div style="width: 90%; margin-left: auto; margin-right: auto">
+  <div class="card">
+    <p-toolbar styleClass="p-mb-4">
+      <ng-template pTemplate="left">
+        <app-create-dish></app-create-dish>
+      </ng-template>
+
+      <ng-template pTemplate="right">
+        <button
+          style="margin-right: 20px; background-color: black"
+          pButton
+          pRipple
+          label="Import"
+          icon="pi pi-upload"
+          class="p-button-help"
+        ></button>
+        <button
+          style="background-color: black"
+          pButton
+          pRipple
+          label="Export"
+          icon="pi pi-upload"
+          class="p-button-help"
+        ></button>
+      </ng-template>
+    </p-toolbar>
+    <mat-progress-bar *ngIf="!categories" mode="indeterminate"></mat-progress-bar>
+
+    <p-table
+      #dt
+      [value]="categories"
+      [rows]="10"
+      [paginator]="true"
+      [globalFilterFields]="[
+        'name',
+        'country.name',
+        'representative.name',
+        'status'
+      ]"
+      [(selection)]="selectedProducts"
+      [rowHover]="true"
+      dataKey="id"
+      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+      [showCurrentPageReport]="true"
+    >
+      <ng-template pTemplate="caption">
+        <div class="p-d-flex p-ai-center p-jc-between">
+          <h5 class="p-m-0">Manage Products</h5>
+          <span class="p-input-icon-left">
+            <i class="pi pi-search"></i>
+            <input
+              pInputText
+              type="text"
+              (input)="dt.filterGlobal($event.target.value, 'contains')"
+              placeholder="Search..."
+            />
+          </span>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="name">
+            Name <p-sortIcon field="name"></p-sortIcon>
+          </th>
+          <th>
+            Image
+          </th>
+          <th pSortableColumn="price">
+            description <p-sortIcon field="price"></p-sortIcon>
+          </th>
+          <th></th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-product>
+        <tr>
+          <td>{{ category.name }}</td>
+          <td><img style="width: 80px; height: 80px;" src="{{category.imagePath}}" alt=""></td>
+          <td>{{ category.description}}</td>
+          <td>
+            <button
+              pButton
+              pRipple
+              style="
+                margin-left: 70px;
+                background-color: #e31837;
+                color: white;
+              "
+              icon="pi pi-trash"
+              class="p-button-rounded p-button-warning"
+              (click)="deleteProduct(category)"
+            ></button>
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="summary">
+        <div class="p-d-flex p-ai-center p-jc-between">
+          In total there are {{ categories ? categories.length : 0 }} products.
+        </div>
+      </ng-template>
+    </p-table>
+  </div>
+  <p-confirmDialog [style]="{ width: '450px' }"></p-confirmDialog>
+</div> -->
