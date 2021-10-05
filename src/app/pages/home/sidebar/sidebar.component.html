@@ -5,6 +5,9 @@
   <span class="example-spacer"></span>
   <h2 style="margin-right: 10px; color: white;" >{{UtilsService.username}}</h2>
   <div *ngIf="UtilsService.username" >
+    <button routerLink="/" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon style="color: white;" >local_pizza</mat-icon>
+    </button>
     <button routerLink="/categories" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
       <mat-icon style="color: white;" >category</mat-icon>
     </button>
@@ -14,11 +17,11 @@
     <button routerLink="/orders" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
       <mat-icon style="color: white;" >reorder</mat-icon>
     </button>
+    <button routerLink="/resertable" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon style="color: white;" >table_chart</mat-icon>
+    </button>
     <button routerLink="/ads" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
       <mat-icon style="color: white;" ><mat-icon>photo_size_select_actual</mat-icon></mat-icon>
-    </button>
-    <button routerLink="/" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-      <mat-icon style="color: white;" >local_pizza</mat-icon>
     </button>
     <button (click)="logOut()" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
       <mat-icon style="color: white;" >exit_to_app</mat-icon>

@@ -27,6 +27,7 @@ export class CreateCategoryComponent implements OnInit {
   categoryForm = new FormGroup({
     name: new FormControl(''),
     description: new FormControl(''),
+    status: new FormControl('')
   })
 
   filePath: string[] = []; 

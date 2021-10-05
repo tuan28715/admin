@@ -15,4 +15,8 @@ export class AuthService {
     return await this.UtilsService.getAll("user");
   }
 
+  async updateUser(data){
+    return await this.UtilsService.updateUser("user", data);
+  }
+
 }

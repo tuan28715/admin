@@ -41,6 +41,8 @@ import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.compo
 import {PanelMenuModule} from 'primeng/panelmenu';
 import { UpdateCategoryComponent } from './category/update-category/update-category.component';
 import { CreateCategoryComponent } from './category/create-category/create-category.component';
+import { AdsComponent } from './ads/ads.component';
+import { UpdateUserComponent } from './user/update-user/update-user.component';
 @NgModule({
   declarations: [
     HomeComponent,
@@ -53,7 +55,9 @@ import { CreateCategoryComponent } from './category/create-category/create-categ
     UserComponent,
     DashboardAdminComponent,
     UpdateCategoryComponent,
-    CreateCategoryComponent
+    CreateCategoryComponent,
+    AdsComponent,
+    UpdateUserComponent
   ],
   imports: [
     ReactiveFormsModule,

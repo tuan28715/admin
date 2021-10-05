@@ -9,6 +9,11 @@
       <form [formGroup]="categoryForm" >
         <input type="text" placeholder="Enter name" formControlName="name">
         <input type="text" placeholder="Enter description" formControlName="description">
+        <select formControlName="status" class="select" >
+          <option><p>---</p></option>
+          <option><p>actives</p></option>
+          <option><p>inactives</p></option>
+        </select>
         <div>
           <img style="width: 150px; height: auto;" *ngFor="let urlFile of filePath" [src]="urlFile">
         </div>

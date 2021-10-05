@@ -21,14 +21,17 @@
       <td>{{ user.email }}</td>
       <td>{{ user.metadata.created | date: "medium" }}</td>
       <td>{{ user.role }}</td>
-      <td>
+      <td *ngIf="user.role != 'admin'" >
+        <app-update-user [user]="user" ></app-update-user>
+      </td>
+      <td *ngIf="user.role === 'admin'" >
         <button
-          pButton
-          pRipple
-          style="background-color: #004666; color: white"
-          icon="pi pi-pencil"
-          class="p-button-rounded p-button-warning"
-        ></button>
+        pButton
+        pRipple
+        style="background-color: #004666; color: white"
+        icon="pi pi-pencil"
+        class="p-button-rounded p-button-warning"
+      ></button>
       </td>
     </tr>
   </tbody>

@@ -16,4 +16,8 @@ export class CategoryService {
     return await this.UtilsService.create("category", category);
   }
 
+  async updateCategory(category){
+    return await this.UtilsService.update("category", category);
+  }
+
 }

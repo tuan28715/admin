@@ -9,6 +9,8 @@
       <form [formGroup]="dishForm" >
         <input type="text" placeholder="Enter name" formControlName="name">
         <input type="number" placeholder="Enter price" formControlName="price">
+        <!-- <p-inputNumber placeholder="Enter price" inputId="integeronly" [style]="{ 'width': '100%', 'height':'45px'}" formControlName="price">
+        </p-inputNumber> -->
         <input type="text" placeholder="Enter description" formControlName="description">
         <select formControlName="type" class="select" >
           <option><p>---</p></option>
@@ -17,8 +19,8 @@
         <input type="text" placeholder="Enter ingredients" formControlName="ingredients">
         <select formControlName="status" class="select" >
           <option><p>---</p></option>
-          <option><p>active</p></option>
-          <option><p>inactive</p></option>
+          <option><p>actives</p></option>
+          <option><p>inactives</p></option>
         </select>
         <div>
           <img style="width: 150px; height: auto;" *ngFor="let urlFile of filePath" [src]="urlFile">

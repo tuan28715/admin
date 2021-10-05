@@ -12,6 +12,7 @@ import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
 import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire'
 import { AngularFireStorageModule } from '@angular/fire/storage'
+import { HashLocationStrategy, LocationStrategy } from '@angular/common'
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +40,11 @@ import { AngularFireStorageModule } from '@angular/fire/storage'
     AngularFireStorageModule
   ],
   exports:[],
-  providers: [],
+  providers: [
+  {
+    provide:LocationStrategy,
+    useClass:HashLocationStrategy
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

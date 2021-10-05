@@ -23,7 +23,7 @@ export class UpdateDishComponent {
   }
   open(content) {
     // console.log(this.dish)
-    this.modalService.open(content);
+    this.modalService.open(content, { size: 'lg' });
   }
 
   async save(){

@@ -1,7 +1,7 @@
 <ng-template #content let-c="close" let-d="dismiss">
     <div class="modal-header">
       <h2 class="modal-title" id="modal-basic-title">
-        <strong>{{ category.name }}</strong>
+        ID: <strong>{{ user._id }}</strong>
       </h2>
       <button
         type="button"
@@ -13,11 +13,11 @@
       </button>
     </div>
     <div class="modal-body">
-      <div>
+      <!-- <div>
         <img
           style="width: 150px; height: auto"
           class="img-body"
-          src="{{ category.imagePath }}"
+          src="{{ user.imagePath }}"
           alt=""
         />
         <label >
@@ -26,28 +26,32 @@
                  accept="*.png.jpg"
                  (change)="processFile($event)">
         </label>
-      </div>
-      <hr />
+      </div> -->
+      <!-- <hr /> -->
       <div>
         <span class="body-content">
           <h3>
-            <strong>{{ category.name }}</strong>
+            <strong>{{ user.username }}</strong>
           </h3>
         </span>
       </div>
-        <p><strong>Description : </strong></p>
-        <input type="text" [(ngModel)]="category.description" />
-        <p><strong>Description : </strong></p>
-        <select [(ngModel)]="category.status" class="select" >
+        <p><strong>Full Name : </strong></p>
+        <input type="text" [(ngModel)]="user.fullname" />
+        <p><strong>Email : </strong></p>
+        <input type="text" [(ngModel)]="user.email" />
+        <!-- <select [(ngModel)]="user.status" class="select" >
           <option><p>---</p></option>
           <option><p>actives</p></option>
           <option><p>inactives</p></option>
+        </select> -->
+        <select [(ngModel)]="user.role" class="select" >
+            <option><p>user</p></option>
+            <option><p>staff</p></option>
         </select>
       <hr />
       <div>
-        <p>actor: {{ category.metadata.actor }}</p>
-        <p>created: {{ category.metadata.created | date:'medium'}}</p>
-        <p>updated: {{ category.metadata.updated | date:'medium'}}</p>
+        <p>created: {{ user.metadata.created | date:'medium'}}</p>
+        <p>updated: {{ user.metadata.updated | date:'medium'}}</p>
       </div>
     </div>
     <div class="modal-footer">
@@ -59,12 +63,11 @@
     </div>
   </ng-template>
   
-  <button
-    style="background-color: #004666"
-    pButton
-    pRipple
-    icon="pi pi-pencil"
-    class="p-button-rounded p-button-success p-mr-2"
-    (click)="open(content)"
-  ></button>
-  
+<button
+  pButton
+  pRipple
+  style="background-color: #004666; color: white"
+  icon="pi pi-pencil"
+  class="p-button-rounded p-button-warning"
+  (click)="open(content)"
+></button>
