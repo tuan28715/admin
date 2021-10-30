@@ -45,7 +45,7 @@ export class UtilsService {
   }
 
   public user :any;
-  public username = localStorage.getItem('user');
+  public username = 'test';
   public async auth(collectionName: string, data){
     return await this.HttpClient.post(HEROKU_USER_URL + collectionName, data).subscribe(async res=>{
       this.user = res;

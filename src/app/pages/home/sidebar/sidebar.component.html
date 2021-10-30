@@ -3,31 +3,23 @@
     <img routerLink="/" style="width: 65%; margin-bottom: 15px;" class="logo" src="https://dominos.vn/img/logo/domino-horizontal-dark.svg" alt="logo">
   </span>
   <span class="example-spacer"></span>
-  <h2 style="margin-right: 10px; color: white;" >{{UtilsService.username}}</h2>
+  <h2 style="margin-right: 10px; color: white; font-family: 'Inconsolata', monospace;" >{{UtilsService.username}}</h2>
   <div *ngIf="UtilsService.username" >
-    <button routerLink="/" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <button matTooltip="Các món ăn" routerLink="/" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
       <mat-icon style="color: white;" >local_pizza</mat-icon>
     </button>
-    <button routerLink="/categories" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <button matTooltip="Danh mục" routerLink="/categories" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
       <mat-icon style="color: white;" >category</mat-icon>
     </button>
-    <button routerLink="/users" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <button matTooltip="Người dùng" routerLink="/users" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
       <mat-icon style="color: white;" >person</mat-icon>
     </button>
-    <button routerLink="/orders" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-      <mat-icon style="color: white;" >reorder</mat-icon>
-    </button>
-    <button routerLink="/resertable" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-      <mat-icon style="color: white;" >table_chart</mat-icon>
-    </button>
-    <button routerLink="/ads" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-      <mat-icon style="color: white;" ><mat-icon>photo_size_select_actual</mat-icon></mat-icon>
-    </button>
-    <button (click)="logOut()" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+    <button matTooltip="Đăng xuất" (click)="logOut()" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
       <mat-icon style="color: white;" >exit_to_app</mat-icon>
     </button>
   </div>
   <div *ngIf="!UtilsService.username" >
+    <app-register></app-register>
     <app-login></app-login>
   </div>
 </mat-toolbar>

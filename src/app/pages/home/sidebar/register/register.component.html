@@ -1,0 +1,28 @@
+<p-toast></p-toast>
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Register!</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="userForm" action="/action_page.php">
+            <div class="container">
+                <input formControlName="username" type="text" placeholder="Enter Username" name="username" id="username"
+                    required>
+                <input formControlName="password" type="password" placeholder="Enter Password" name="psw" id="psw"
+                    required>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="register()">Register</button>
+    </div>
+</ng-template>
+
+<!-- <a style="margin-top: 30px;" >Login</a> -->
+<button matTooltip="Đăng ký" (click)="open(content)" mat-icon-button class="example-icon favorite-icon"
+    aria-label="Example icon-button with heart icon">
+    <mat-icon style="color: white;">person_add</mat-icon>
+</button>

@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
     this.modalService.open(content);
   }
   async login(){
-    await this.AuthService.login(this.userForm.value);
+    await this.AuthService.authLogin(this.userForm.value.username, this.userForm.value.password);
   }
 
 }

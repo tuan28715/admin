@@ -35,7 +35,9 @@ export class CrudComponent implements OnInit {
         ) { }
 
     ngOnInit() {
-        this.DishService.getAll().then(data => this.products = data);
+        this.DishService.getAll().subscribe((res)=>{
+            this.products = res;
+        })
     }
 
     updateDish(dish){

@@ -1,3 +1,4 @@
+<p-toast></p-toast>
 <ng-template #content let-c="close" let-d="dismiss">
     <div class="modal-header">
       <h4 class="modal-title" id="modal-basic-title">Create Dish!</h4>
@@ -16,12 +17,12 @@
           <option><p>---</p></option>
           <option *ngFor="let category of categories"   ><p>{{category.name}}</p></option>
         </select>
-        <input type="text" placeholder="Enter ingredients" formControlName="ingredients">
         <select formControlName="status" class="select" >
           <option><p>---</p></option>
           <option><p>actives</p></option>
           <option><p>inactives</p></option>
         </select>
+        <hr>
         <div>
           <img style="width: 150px; height: auto;" *ngFor="let urlFile of filePath" [src]="urlFile">
         </div>

@@ -43,6 +43,7 @@ import { UpdateCategoryComponent } from './category/update-category/update-categ
 import { CreateCategoryComponent } from './category/create-category/create-category.component';
 import { AdsComponent } from './ads/ads.component';
 import { UpdateUserComponent } from './user/update-user/update-user.component';
+import { RegisterComponent } from './sidebar/register/register.component';
 @NgModule({
   declarations: [
     HomeComponent,
@@ -57,7 +58,8 @@ import { UpdateUserComponent } from './user/update-user/update-user.component';
     UpdateCategoryComponent,
     CreateCategoryComponent,
     AdsComponent,
-    UpdateUserComponent
+    UpdateUserComponent,
+    RegisterComponent
   ],
   imports: [
     ReactiveFormsModule,
