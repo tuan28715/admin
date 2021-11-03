@@ -6,6 +6,8 @@ import { UtilsService } from '../services/utils.service'
 import { AngularFireStorage } from '@angular/fire/storage'
 import { Observable } from 'rxjs';
 import { map, finalize } from "rxjs/operators";
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore'
+
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +19,8 @@ export class SupportService {
     private CategoryService:CategoryService,
     private DishService:DishService,
     private UtilsService:UtilsService,
-    private af:AngularFireStorage
+    private af:AngularFireStorage,
+    private afs: AngularFirestore
   ) { }
 
   selectedFile: File = null;
@@ -36,6 +39,40 @@ export class SupportService {
         this.downloadURL.subscribe(url => {
           if (url) {
             this.fb = url;
+          }
+        });
+      })
+    )
+    .subscribe(url => {
+      if (url) {
+        console.log(url)
+      }
+    });
+  }
+
+  public async create(path: any, collection: string, data: any){
+    var n = Date.now().toString();
+    const filePath = `${collection}/${n}`;
+    const fileRef = this.af.ref(filePath);
+    const task = this.af.upload(`${collection}/${n}`, path);
+    task
+    .snapshotChanges()
+    .pipe(
+      finalize(() => {
+        this.downloadURL = fileRef.getDownloadURL();
+        this.downloadURL.subscribe(async url => {
+          if (url) {
+            const _data = {
+              ...data,
+              metadata: {
+                created: n,
+                updated: n,
+                actor: "admin"
+              },
+              imagePath: url,
+              id: n
+            }
+            return await this.afs.collection<any>(collection).doc(n).set(_data)
           }
         });
       })

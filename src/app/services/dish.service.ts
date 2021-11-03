@@ -26,4 +26,8 @@ export class DishService {
     return this.afs.collection<any>('dishes').doc(Date.now().toString()).set(dish)
   }
 
+  delete(dish: Dish){
+    return this.afs.collection<any>('dishes').doc(dish.id).delete()
+  }
+
 }

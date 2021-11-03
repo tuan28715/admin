@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Category } from 'src/app/models/category';
 import { CategoryService } from '../../../../services/category.service';
 import { SupportService } from '../../../../services/support.service';
 
@@ -12,7 +13,7 @@ import { SupportService } from '../../../../services/support.service';
 })
 export class UpdateCategoryComponent  {
 
-  @Input() category:any;
+  @Input() category: Category;
   constructor(
     config: NgbModalConfig,
     private modalService: NgbModal,

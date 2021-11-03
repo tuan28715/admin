@@ -58,28 +58,9 @@ export class CreateDishComponent implements OnInit{
   }
 
   async onSubmit(){
-    await this.SupportService.uploadImage(this.Path, "Dishes");
-    setTimeout(()=>{
-      let imagePath = this.SupportService.fb
-      const dish:Dish = {
-        ...this.dishForm.value,
-        imagePath:imagePath,
-        metadata: {
-          created: Date.now().toString(),
-          updated: Date.now().toString(),
-          actor: "admin"
-        },
-        id: Date.now().toString()
-      }
-      this.DishService.createDish(dish).then(async (res)=>{
-        await this.modalService.dismissAll(res)
-        await this.messageService.add({severity:'success', summary: 'Success', detail: 'Thêm thành công!'});
-      },async (err)=>{
-        await this.modalService.dismissAll(err)
-        await this.messageService.add({severity:'error', summary: 'Error', detail: 'Thêm thất bại!'});
-      })
-    },2000)
-  
+    await this.SupportService.create(this.Path, 'dishes', this.dishForm.value);
+    await this.modalService.dismissAll()
+    await this.messageService.add({severity:'success', summary: 'Success', detail: 'Thêm thành công!'});
   }
 
   open(content) {

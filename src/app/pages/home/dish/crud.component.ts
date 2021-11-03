@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ConfirmationService } from 'primeng/api';
 import { MessageService } from 'primeng/api';
+import { Dish } from 'src/app/models/dish';
 import { DishService } from '../../../services/dish.service';
 @Component({
   selector: 'app-crud',
@@ -18,7 +19,7 @@ export class CrudComponent implements OnInit {
 
   productDialog: boolean;
 
-    products: any
+    products: Dish[] = []
 
     product: any;
 
@@ -37,6 +38,7 @@ export class CrudComponent implements OnInit {
     ngOnInit() {
         this.DishService.getAll().subscribe((res)=>{
             this.products = res;
+            console.log(res)
         })
     }
 
@@ -63,15 +65,16 @@ export class CrudComponent implements OnInit {
         });
     }
 
-    deleteProduct(product: any) {
+    deleteProduct(dish: Dish) {
         this.confirmationService.confirm({
-            message: 'Are you sure you want to delete ' + product.name + '?',
+            message: 'Are you sure you want to delete ' + dish.name + '?',
             header: 'Confirm',
             icon: 'pi pi-exclamation-triangle',
-            accept: () => {
-                this.products = this.products.filter(val => val.id !== product.id);
-                this.product = {};
-                this.messageService.add({severity:'success', summary: 'Successful', detail: 'Product Deleted', life: 3000});
+            accept: async () => {
+                // this.products = this.products.filter(val => val.id !== product.id);
+                // this.product = {};
+                await this.DishService.delete(dish);
+                this.messageService.add({severity:'success', summary: 'Successful', detail: 'Xóa thành công!', life: 5000});
             }
         });
     }
