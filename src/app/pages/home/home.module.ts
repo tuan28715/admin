@@ -3,14 +3,12 @@ import { CommonModule } from '@angular/common';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
-
-import { MenubarModule } from 'primeng/menubar';
-import { InputTextModule } from 'primeng/inputtext';
-import { ButtonModule } from 'primeng/button';
 import { MaterialModule } from '../../shared/material-module';
 import { CrudComponent } from './dish/crud.component'
-import { SidebarComponent } from './sidebar/sidebar.component'
 
+import { ButtonModule } from 'primeng/button';
+import { MenubarModule } from 'primeng/menubar';
+import { InputTextModule } from 'primeng/inputtext';
 import {TableModule} from 'primeng/table';
 import {ToastModule} from 'primeng/toast';
 import {CalendarModule} from 'primeng/calendar';
@@ -31,35 +29,31 @@ import { MessageService } from 'primeng/api';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
+import {PanelMenuModule} from 'primeng/panelmenu';
+
 import { CreateDishComponent } from './dish/create-dish/create-dish.component';
 import { UpdateDishComponent } from './dish/update-dish/update-dish.component';
-import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
-import { LoginComponent } from './sidebar/login/login.component';
-import { CategoryComponent } from './category/category.component';
-import { UserComponent } from './user/user.component';
-import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.component';
-import {PanelMenuModule} from 'primeng/panelmenu';
 import { UpdateCategoryComponent } from './category/update-category/update-category.component';
 import { CreateCategoryComponent } from './category/create-category/create-category.component';
-import { AdsComponent } from './ads/ads.component';
 import { UpdateUserComponent } from './user/update-user/update-user.component';
-import { RegisterComponent } from './sidebar/register/register.component';
+import { PageModule } from '../../shared/pagemodule'
+import { UserComponent } from './user/user.component';
+import { CategoryComponent } from './category/category.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+
 @NgModule({
   declarations: [
     HomeComponent,
     CrudComponent,
-    SidebarComponent,
     CreateDishComponent,
     UpdateDishComponent,
-    LoginComponent,
     CategoryComponent,
     UserComponent,
-    DashboardAdminComponent,
     UpdateCategoryComponent,
     CreateCategoryComponent,
-    AdsComponent,
     UpdateUserComponent,
-    RegisterComponent
+    DashboardComponent,
   ],
   imports: [
     ReactiveFormsModule,
@@ -91,9 +85,12 @@ import { RegisterComponent } from './sidebar/register/register.component';
     InputTextareaModule,
     NgbPaginationModule,
     NgbAlertModule,
-    PanelMenuModule
+    PanelMenuModule,
+    PageModule
   ],
   providers:[MessageService, ConfirmationService],
-  exports:[SidebarComponent]
+  exports:[
+
+  ]
 })
 export class HomeModule { }

@@ -11,13 +11,16 @@ export class CategoryComponent implements OnInit {
 
   constructor(
     private CategoryService:CategoryService
-  ) { }
-  categories:Category[] = [];
-  selectedProducts:any;
-  ngOnInit(): void {
+  ) 
+  { 
     this.CategoryService.getAll().then((res: Category[])=>{
       this.categories = res
     });
+  }
+  categories:Category[] = [];
+  selectedProducts:any;
+  ngOnInit(): void {
+    
   }
 
 }

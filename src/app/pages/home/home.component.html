@@ -1,8 +1,31 @@
-<app-sidebar></app-sidebar>
-<div *ngIf="!UtilsService.username" id="main">
-    <div class="fof">
-            <h1>Domino's Pizza</h1>
+<mat-toolbar style="background-color: #004666; height: 80px;">
+    <span>
+        <img matTooltip="Trang chủ" routerLink="/" style="width: 65%; margin-bottom: 15px;" class="logo"
+            src="https://dominos.vn/img/logo/domino-horizontal-dark.svg" alt="logo">
+    </span>
+    <span class="example-spacer"></span>
+    <h2 style="margin-right: 10px; color: white; font-family: 'PT Sans', sans-serif;">{{UtilsService.username}}</h2>
+    <div>
+        <button matTooltip="Quản lý món ăn" routerLink="dishes" mat-icon-button class="example-icon favorite-icon"
+            aria-label="Example icon-button with heart icon">
+            <mat-icon style="color: white;">local_pizza</mat-icon>
+        </button>
+        <button matTooltip="Quản lý danh mục" routerLink="categories" mat-icon-button class="example-icon favorite-icon"
+            aria-label="Example icon-button with heart icon">
+            <mat-icon style="color: white;">category</mat-icon>
+        </button>
+        <button matTooltip="Quản lý người dùng" routerLink="users" mat-icon-button class="example-icon favorite-icon"
+            aria-label="Example icon-button with heart icon">
+            <mat-icon style="color: white;">person</mat-icon>
+        </button>
+        <button matTooltip="Đăng xuất" mat-icon-button class="example-icon"
+            aria-label="Example icon-button with share icon">
+            <mat-icon style="color: white;">exit_to_app</mat-icon>
+        </button>
     </div>
-</div>
-<app-crud *ngIf="UtilsService.username"  ></app-crud>
-<!-- <app-dashboard-admin *ngIf="UtilsService.username" ></app-dashboard-admin> -->
+    <div *ngIf="!UtilsService.username">
+        <app-register></app-register>
+        <app-login></app-login>
+    </div>
+</mat-toolbar>
+<router-outlet></router-outlet>

@@ -28,23 +28,12 @@
         ></button>
       </ng-template>
     </p-toolbar>
-    <mat-progress-bar *ngIf="!products" mode="indeterminate"></mat-progress-bar>
-
+      <mat-progress-bar *ngIf="!products" mode="indeterminate"></mat-progress-bar>
     <p-table
-      #dt
       [value]="products"
       [rows]="10"
       [paginator]="true"
-      [globalFilterFields]="[
-        'name',
-        'country.name',
-        'representative.name',
-        'status'
-      ]"
-      [(selection)]="selectedProducts"
       [rowHover]="true"
-      dataKey="id"
-      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
       [showCurrentPageReport]="true"
     >
       <ng-template pTemplate="caption">
@@ -89,9 +78,9 @@
               alt=""
             />
           </td>
-          <td>{{ product.price | currency: "VND" }}</td>
+          <td>{{ product.price | number }}</td>
           <td>{{ product.type }}</td>
-          <td>{{ product.metadata.updated | date:"medium"}}</td>
+          <td>{{ product.metadata.updated | date:"longDate"}}</td>
           <td>
             <app-update-dish [dish]="product"></app-update-dish>
             <button

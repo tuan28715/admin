@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NotimplementComponent } from './shared/notimplement/notimplement.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './shared/material-module';
@@ -12,11 +11,11 @@ import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
 import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire'
 import { AngularFireStorageModule } from '@angular/fire/storage'
-import { HashLocationStrategy, LocationStrategy } from '@angular/common'
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { PageModule } from './shared/pagemodule';
 @NgModule({
   declarations: [
-    AppComponent,
-    NotimplementComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +26,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common'
     NgbModule,
     NgbPaginationModule,
     NgbAlertModule,
+    PageModule,
     AngularFireModule.initializeApp({
       apiKey: "AIzaSyCFpblkZnZgb-p31WL8wO7W8fdxMYwd2HA",
       authDomain: "pizza-dffae.firebaseapp.com",

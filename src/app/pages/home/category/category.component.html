@@ -1,16 +1,12 @@
-<app-sidebar></app-sidebar>
-
+<app-spinkit *ngIf="categories" ></app-spinkit>
 <p-toast></p-toast>
-<div style="width: 90%; margin-left: auto; margin-right: auto">
+<div *ngIf="!categories" style="width: 90%; margin-left: auto; margin-right: auto">
   <div class="card">
     <p-toolbar styleClass="p-mb-4">
       <ng-template pTemplate="left">
-        <!-- <app-create-dish></app-create-dish> -->
         <app-create-category></app-create-category>
       </ng-template>
     </p-toolbar>
-    <mat-progress-bar *ngIf="!categories" mode="indeterminate"></mat-progress-bar>
-
     <p-table
       #dt
       [value]="categories"

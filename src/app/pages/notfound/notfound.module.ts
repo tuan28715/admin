@@ -4,14 +4,18 @@ import { CommonModule } from '@angular/common';
 import { NotfoundRoutingModule } from './notfound-routing.module';
 import { NotfoundComponent } from './notfound.component';
 import { HomeModule } from '../../pages/home/home.module'
+import { PageModule } from 'src/app/shared/pagemodule';
 
 
 @NgModule({
-  declarations: [NotfoundComponent],
+  declarations: [
+    NotfoundComponent
+  ],
   imports: [
     CommonModule,
     NotfoundRoutingModule,
-    HomeModule
+    HomeModule,
+    PageModule
   ]
 })
 export class NotfoundModule { }

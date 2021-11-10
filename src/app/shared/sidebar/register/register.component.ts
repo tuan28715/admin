@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormGroup, FormControl } from '@angular/forms';
-import { AuthService } from '../../../../services/auth.service';
+import { AuthService } from '../../../services/auth.service';
 import { User } from 'src/app/models/user';
 import {MessageService} from 'primeng/api';
 import { PrimeNGConfig } from 'primeng/api';

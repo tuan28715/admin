@@ -17,16 +17,8 @@ import { DishService } from '../../../services/dish.service';
 })
 export class CrudComponent implements OnInit {
 
-  productDialog: boolean;
-
     products: Dish[] = []
-
     product: any;
-
-    selectedProducts: any;
-
-    submitted: boolean;
-
     dishes: any;
     categories:any;
     constructor(
@@ -38,31 +30,11 @@ export class CrudComponent implements OnInit {
     ngOnInit() {
         this.DishService.getAll().subscribe((res)=>{
             this.products = res;
-            console.log(res)
         })
     }
 
     updateDish(dish){
         this.DishService.updateDish(dish);
-    }
-
-    openNew() {
-        this.product = {};
-        this.submitted = false;
-        this.productDialog = true;
-    }
-
-    deleteSelectedProducts() {
-        this.confirmationService.confirm({
-            message: 'Are you sure you want to delete the selected products?',
-            header: 'Confirm',
-            icon: 'pi pi-exclamation-triangle',
-            accept: () => {
-                this.products = this.products.filter(val => !this.selectedProducts.includes(val));
-                this.selectedProducts = null;
-                this.messageService.add({severity:'success', summary: 'Successful', detail: 'Products Deleted', life: 3000});
-            }
-        });
     }
 
     deleteProduct(dish: Dish) {
@@ -78,11 +50,6 @@ export class CrudComponent implements OnInit {
             }
         });
     }
-
-    hideDialog() {
-        this.productDialog = false;
-        this.submitted = false;
-    }
     
     findIndexById(id: string): number {
         let index = -1;
@@ -92,7 +59,6 @@ export class CrudComponent implements OnInit {
                 break;
             }
         }
-
         return index;
     }
 }
