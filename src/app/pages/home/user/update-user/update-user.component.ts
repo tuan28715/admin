@@ -27,7 +27,7 @@ export class UpdateUserComponent implements OnInit {
   }
 
   save(){
-    this.AuthService.updateUser(this.user);
+    // this.AuthService.updateUser(this.user);
   }
 
 }

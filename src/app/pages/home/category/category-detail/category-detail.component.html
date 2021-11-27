@@ -1,0 +1,24 @@
+<p-dialog header="Chi tiết {{category.name}}" [(visible)]="displayBasic" [style]="{width: '50vw'}">
+  <div>
+    <img style="  display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width:50%" src="{{category.imagePath}}">
+  </div>
+  <form action="">
+    <input name="first" [(ngModel)]="category.name" type="text" placeholder="name">
+    <input name="seccond" [(ngModel)]="category.description" type="text" placeholder="description">
+  </form>
+<ng-template pTemplate="footer">
+    <p-button icon="pi pi-check" (click)="update()" label="Ok" styleClass="p-button-text"></p-button>
+</ng-template>
+</p-dialog>
+
+<button
+  style="background-color: #004666"
+  pButton
+  pRipple
+  icon="pi pi-pencil"
+  class="p-button-rounded p-button-success p-mr-2"
+  (click)="open()"
+></button>

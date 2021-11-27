@@ -10,7 +10,7 @@ export class UserComponent implements OnInit {
   constructor(private AuthService:AuthService) { }
   users:any;
   ngOnInit(): void {
-    this.AuthService.getAllUser().then(res=>this.users = res);
+    // this.AuthService.getAllUser().then(res=>this.users = res);
   }
 
 }

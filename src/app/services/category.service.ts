@@ -1,23 +1,29 @@
 import { Injectable } from '@angular/core';
-import { UtilsService } from '../services/utils.service'
-
+import { HttpClient } from '@angular/common/http';
+import { BASE_URL } from '../configs/baseUrl'
 @Injectable({
   providedIn: 'root'
 })
 export class CategoryService {
 
-  constructor(private UtilsService:UtilsService) { }
+  constructor(
+    private HttpClient:HttpClient
+  ) { }
 
-  async getAll(){
-   return await this.UtilsService.getAll("category");
+  getAll(){
+    return this.HttpClient.get<any>(BASE_URL + "categories")
   }
 
-  async createCategory(category){
-    return await this.UtilsService.create("category", category);
+  createCategory(category){
+    return this.HttpClient.post(BASE_URL + "category", category);
   }
 
-  async updateCategory(category){
-    return await this.UtilsService.update("category", category);
+  updateCategory(category){
+    return this.HttpClient.put(BASE_URL + "category", category);
+  }
+
+  deleteCategory(id){
+    return this.HttpClient.delete(BASE_URL + `category?id=${id}`)
   }
 
 }

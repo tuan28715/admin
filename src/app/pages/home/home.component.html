@@ -4,8 +4,8 @@
             src="https://dominos.vn/img/logo/domino-horizontal-dark.svg" alt="logo">
     </span>
     <span class="example-spacer"></span>
-    <h2 style="margin-right: 10px; color: white; font-family: 'PT Sans', sans-serif;">{{UtilsService.username}}</h2>
-    <div>
+    <h2 style="margin-right: 10px; color: white; font-family: 'PT Sans', sans-serif;">{{AuthService.currentUser}}</h2>
+    <div *ngIf="AuthService.currentUser"  >
         <button matTooltip="Quản lý món ăn" routerLink="dishes" mat-icon-button class="example-icon favorite-icon"
             aria-label="Example icon-button with heart icon">
             <mat-icon style="color: white;">local_pizza</mat-icon>
@@ -23,7 +23,7 @@
             <mat-icon style="color: white;">exit_to_app</mat-icon>
         </button>
     </div>
-    <div *ngIf="!UtilsService.username">
+    <div *ngIf="!AuthService.currentUser" >
         <app-register></app-register>
         <app-login></app-login>
     </div>

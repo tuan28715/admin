@@ -26,7 +26,7 @@ export class RegisterComponent implements OnInit {
   }
 
   userForm = new FormGroup({
-    username: new FormControl(''),
+    email: new FormControl(''),
     password: new FormControl(''),
   });
 
@@ -34,25 +34,6 @@ export class RegisterComponent implements OnInit {
     this.modalService.open(content);
   }
   async register(){
-    let user: User = {
-      uid: null,
-      email: null,
-      imagePath: null,
-      isAdmin: false,
-      metadata:{
-          created: Date.now().toString(),
-          update: Date.now().toString(),
-      },
-      username: this.userForm.value.username,
-      password: this.userForm.value.password,
-    }
-    this.AuthService.createAccount(user).then(async (res)=>{
-      await this.modalService.dismissAll(res);
-      await this.messageService.add({severity:'success', summary: 'Success', detail: 'Đăng ký thành công!'});
-    },async (err)=>{
-      await this.modalService.dismissAll(err);
-      await this.messageService.add({severity:'error', summary: 'Error', detail: 'Đăng ký thất bại!'});
-    })
+    await this.AuthService.createUser(this.userForm.value);
   }
-
 }

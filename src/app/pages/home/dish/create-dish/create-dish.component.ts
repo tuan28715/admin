@@ -32,10 +32,10 @@ export class CreateDishComponent implements OnInit{
   }
   categories:any
   ngOnInit(): void {
-    this.CategoryService.getAll().then(res=>{
-      // console.log(res)
-      this.categories = res;
-    });
+    // this.CategoryService.getAll().then(res=>{
+    //   // console.log(res)
+    //   this.categories = res;
+    // });
   }
 
   dishForm = new FormGroup({
@@ -46,7 +46,7 @@ export class CreateDishComponent implements OnInit{
     status: new FormControl(''),
   });
 
-  filePath: string[] = []; 
+  filePath: string[] = [];
   Path: String;
   processFile(e){
     this.Path = e.target.files[0];

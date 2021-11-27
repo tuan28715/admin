@@ -6,8 +6,8 @@ import { UserComponent } from './user/user.component';
 import { CrudComponent } from './dish/crud.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 const routes: Routes = [
-  { 
-    path: '', 
+  {
+    path: '',
     component: HomeComponent,
     children:[
       { path: '', canActivate:[], component: DashboardComponent},

@@ -45,7 +45,7 @@ export class UtilsService {
   }
 
   public user :any;
-  public username = 'admin';
+  public username = 'trong.phamtranduc@gmail.com';
   public async auth(collectionName: string, data){
     return await this.HttpClient.post(HEROKU_USER_URL + collectionName, data).subscribe(async res=>{
       this.user = res;
@@ -57,7 +57,7 @@ export class UtilsService {
       }else{
         this.Router.navigate([''])
       }
-   
+
     },(err)=>console.log(err));
   }
 

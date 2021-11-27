@@ -31,7 +31,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
 import {PanelMenuModule} from 'primeng/panelmenu';
-
 import { CreateDishComponent } from './dish/create-dish/create-dish.component';
 import { UpdateDishComponent } from './dish/update-dish/update-dish.component';
 import { UpdateCategoryComponent } from './category/update-category/update-category.component';
@@ -41,7 +40,9 @@ import { PageModule } from '../../shared/pagemodule'
 import { UserComponent } from './user/user.component';
 import { CategoryComponent } from './category/category.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-
+import { LoginComponent } from '../../shared/sidebar/login/login.component'
+import { RegisterComponent } from '../../shared/sidebar/register/register.component';
+import { CategoryDetailComponent } from './category/category-detail/category-detail.component';
 @NgModule({
   declarations: [
     HomeComponent,
@@ -54,6 +55,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     CreateCategoryComponent,
     UpdateUserComponent,
     DashboardComponent,
+    LoginComponent,
+    RegisterComponent,
+    CategoryDetailComponent,
   ],
   imports: [
     ReactiveFormsModule,
